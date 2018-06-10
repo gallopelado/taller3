@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registrar Plan Anual</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-3">Registrar Plan Anual</h1>
+    <!-- Inicio de los botones -->
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
+          Nuevo Plan
+        </button>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalBusqueda">
+          Consultar
+        </button>
+      </div>
+    </div>
+    <!-- Fin de los botones -->
+    <!-- inicio del Modal Formulario -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Gestionar Plan</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form>
+              <div class="row">
+                <!-- Campo id  -->
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                  <div class="form-group">
+                    <label for="id">id</label>
+                    <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+                <!-- Fecha de ingreso -->
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group">
+                    <label for="id">Fecha de creacion</label>
+                    <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="" readonly>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <!-- Combo sedes -->
+                  <div class="form-group">
+                    <label for="cbosedes">Elegir Sede</label>
+                    <select class="form-control" id="cbosedes">
+                      <option>Central</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                  <!-- Combo personas -->
+                  <div class="form-group">
+                    <label for="Funcionario">Funcionario</label>
+                    <input type="text" class="form-control" id="Funcionario" aria-describedby="Funcionario" placeholder="" readonly>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                  <!-- Combo ministerio -->
+                  <div class="form-group">
+                    <label for="cboanho">Elegir Año</label>
+                    <select class="form-control" id="cboanho">
+                      <option>2018</option>
+                      <option>2019</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-block">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal Formulario -->
+    <!-- Modal de busqueda -->
+    <div class="modal fade" id="modalBusqueda">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Buscar</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form action="">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="form-group">
+                    <label for="txtbusqueda">Buscar</label>
+                    <input type="text" class="form-control" id="txtbusqueda" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-block">Buscar en BD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal de busqueda -->
+    <!-- Inicio de la tabla ciudades -->
+    <br>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Plan id</th>
+              <th>Fecha</th>
+              <th>Sede</th>
+              <th>Funcionario</th>
+              <th>Año hábil</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>05/05/2018</td>
+              <td>Central</td>
+              <td>Juan Jose Gonzalez</td>
+              <th>2018</th>
+              <td>
+                <button type="button" class="btn btn-outline-danger btn-sm">Anular</button></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Fin de la tabla ciudades -->
+  </div>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+</body>
+
+</html>

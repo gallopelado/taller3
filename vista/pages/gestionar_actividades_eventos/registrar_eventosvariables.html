@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registrar eventos variables</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-3">Registrar eventos variables</h1>
+    <!-- Inicio de los botones -->
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
+          Nuevo Evento
+        </button>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalBusqueda">
+          Consultar
+        </button>
+      </div>
+    </div>
+    <!-- Fin de los botones -->
+    <!-- inicio del Modal Formulario -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Gestionar Eventos-Variables</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form>
+              <div class="row">
+                <!-- Campo id  -->
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                  <div class="form-group">
+                    <label for="id">id</label>
+                    <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <!-- Combo Plan -->
+                  <div class="form-group">
+                    <label for="cboplan">Elegir Plan</label>
+                    <select class="form-control" id="cboplan">
+                      <option>2018</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                  <!-- fecha -->
+                  <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" class="form-control" id="fecha" aria-describedby="fecha" placeholder="">
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                  <!-- hora -->
+                  <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <input type="time" class="form-control" id="hora" aria-describedby="hora" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <!-- Combo eventos-nombre -->
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                  <div class="form-group">
+                    <label for="cboevento">Elegir Evento</label>
+                    <select class="form-control" id="cboevento">
+                      <option>Boda</option>
+                      <option>Bautismo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- A quienes va dirigido el evento -->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="para">Para:</label>
+                    <input type="text" class="form-control" id="para" aria-describedby="para" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <!-- Lugar del evento -->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="cbolugar">Elegir Lugar</label>
+                    <select class="form-control" id="cbolugar">
+                      <option>Sede Central</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- Recursos -->
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="recursos">Recursos</label>
+                    <input type="text" class="form-control" id="recursos" aria-describedby="recursos" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="obs">Obs:</label>
+                    <textarea class="form-control" rows="5" id="obs"></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-block">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal Formulario -->
+    <!-- Modal de busqueda -->
+    <div class="modal fade" id="modalBusqueda">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Buscar</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form action="">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="form-group">
+                    <label for="txtbusqueda">Buscar</label>
+                    <input type="text" class="form-control" id="txtbusqueda" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-block">Buscar en BD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal de busqueda -->
+    <!-- Inicio de la tabla ciudades -->
+    <br>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Año hábil</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Evento</th>
+              <th>Para</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2018</td>
+              <td>05/05/2018</td>
+              <td>07:00</td>
+              <td>Sermon general</td>
+              <th>Congregacion</th>
+              <td>
+                <button type="button" class="btn btn-outline-danger btn-sm">Anular</button></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Fin de la tabla ciudades -->
+  </div>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+</body>
+
+</html>

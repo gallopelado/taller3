@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mantener Nacionalidades</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-3">Mantener Nacionalidades</h1>
+    <!-- Inicio de los botones -->
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
+          Nueva Nacionalidad
+        </button>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalBusqueda">
+          Consultar
+        </button>
+      </div>
+    </div>
+    <!-- Fin de los botones -->
+    <!-- inicio del Modal Formulario -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Gestionar Nacionalidad</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form action="">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                  <div class="form-group">
+                    <label for="id">id</label>
+                    <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-10">
+                  <div class="form-group">
+                    <label for="id">Descripcion</label>
+                    <input type="text" class="form-control" id="descripcion" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-block">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal Formulario -->
+    <!-- Modal de busqueda -->
+    <div class="modal fade" id="modalBusqueda">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Buscar</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form action="">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="form-group">
+                    <label for="txtbusqueda">Buscar</label>
+                    <input type="text" class="form-control" id="txtbusqueda" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-block">Buscar en BD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal de busqueda -->
+    <!-- Inicio de la tabla  -->
+    <br>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Id</th>
+              <th>Descripcion</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Paraguayo/a</td>
+              <td>
+                <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#myModal">Modificar</button>
+                <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Fin de la tabla  -->
+  </div>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+</body>
+
+</html>

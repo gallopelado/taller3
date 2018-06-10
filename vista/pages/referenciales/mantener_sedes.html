@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mantener Sedes</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-3">Mantener Sedes</h1>
+    <!-- Inicio de los botones -->
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
+          Nueva Sede
+        </button>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalBusqueda">
+          Consultar
+        </button>
+      </div>
+    </div>
+    <!-- Fin de los botones -->
+    <!-- inicio del Modal Formulario -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Gestionar Sedes</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form action="">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                  <div class="form-group">
+                    <label for="id">id</label>
+                    <input type="text" class="form-control" id="id" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+              </div>
+<!--       Nombre       -->
+              <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group">
+                    <label for="ruc">RUC</label>
+                    <input type="text" class="form-control" id="ruc" aria-describedby="ruc" placeholder="">
+                  </div>
+                </div>
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                  <div class="form-group">
+                    <label for="capacidad">Capacidad</label>
+                    <input type="text" class="form-control" id="capacidad" aria-describedby="capacidad" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                  <div class="form-group">
+                    <label for="tel01">Telefono 1</label>
+                    <input type="text" class="form-control" id="tel01" aria-describedby="tel01" placeholder="">
+                  </div>
+                </div>
+                <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                  <div class="form-group">
+                    <label for="tel02">Telefono 2</label>
+                    <input type="text" class="form-control" id="tel02" aria-describedby="tel02" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" aria-describedby="email" placeholder="">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="paweb">Pagina web</label>
+                    <input type="text" class="form-control" id="paweb" aria-describedby="paweb" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="fpage">Fan Page</label>
+                    <input type="text" class="form-control" id="fpage" aria-describedby="fpage" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                      <label for="latitud">Latitud</label>
+                    <input type="text" class="form-control" id="latitud" aria-describedby="latitud" placeholder="">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                      <label for="longitud">Longitud</label>
+                    <input type="text" class="form-control" id="longitud" aria-describedby="longitud" placeholder="">
+                  </div>
+              </div>
+                <!--        Combo ciudad     -->
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group">
+                    <label for="cbociudad">Elegir Ciudad</label>
+                    <select class="form-control" id="cbociudad">
+                      <option>Villa Elisa</option>
+                    </select>
+                  </div>
+                  </div>
+              </div>
+              <!--        Combo barrio      -->
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group">
+                    <label for="cbobarrio">Elegir Barrio</label>
+                    <select class="form-control" id="cbobarrio">
+                      <option>29 de Septiembre</option>
+                    </select>
+                  </div>
+                  </div>
+              </div>
+              <!--        Combo calle      -->
+              <div class="row">
+                  <div class="col">
+                      <div class="form-group">
+                    <label for="cbocalle">Elegir Calle</label>
+                    <select class="form-control" id="cbocalle">
+                      <option>Eusebio Ayala / Soldado Ovelar</option>
+                    </select>
+                  </div>
+                  </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-block">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal Formulario -->
+    <!-- Modal de busqueda -->
+    <div class="modal fade" id="modalBusqueda">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Buscar</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body jumbotron">
+            <form action="">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="form-group">
+                    <label for="txtbusqueda">Buscar</label>
+                    <input type="text" class="form-control" id="txtbusqueda" aria-describedby="emailHelp" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-block">Buscar en BD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin del Modal de busqueda -->
+    <!-- Inicio de la tabla ciudades -->
+    <br>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Id</th>
+              <th>Descripcion</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Central</td>
+              <td>
+                <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#myModal">Modificar</button>
+                <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Fin de la tabla ciudades -->
+  </div>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+</body>
+
+</html>
