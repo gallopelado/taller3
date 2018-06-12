@@ -2,9 +2,9 @@
 
 
 
-<div id="wrapper">
+<!-- <div id="wrapper"> -->
 
-    <?php include '../partials/menu.php'; ?>
+<?php include '../partials/menu.php'; ?>
 
     <div id="page-wrapper">
         <div class="row">
@@ -23,12 +23,12 @@
                     <div class="panel-body">
                       <div class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal" id="btnNueva">
+                          <button type="button" class="btn btn-primary btn-block" data-toggle="modal"  data-target="#myModal" id="btnNueva">
                             Nueva Ciudad
                           </button>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalBusqueda">
+                          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalBusqueda" id="btnModalBuscar">
                             Consultar
                           </button>
                         </div>
@@ -47,16 +47,20 @@
                             <div class="modal-body jumbotron">
                               <form action="" method="post">
                                 <div class="row">
-                                  <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
-                                    <div class="form-group">
-                                      <label for="id">id</label>
-                                      <input type="text" class="form-control" id="id" name="txtId" aria-describedby="emailHelp" placeholder="">
+                                  <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                                    <div class="form-group" id="divid">
+                                      <label for="id" id="labelid">id</label>
+                                      <input type="text" class="form-control" id="id" name="txtId" aria-describedby="emailHelp" placeholder="" disabled>
                                     </div>
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-10">
                                     <div class="form-group">
                                       <label for="id">Descripcion</label>
-                                      <input type="text" class="form-control" id="descripcion" name="txtDescripcion" aria-describedby="emailHelp" placeholder="">
+                                      <input type="text" class="form-control" id="descripcion" name="txtDescripcion" aria-describedby="emailHelp" placeholder="" required pattern="[A-Z]" autofocus/>
+                                      <div class="alert alert-danger alert-dismissable" id="alertVacio">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                          Campo vacio.
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -64,8 +68,8 @@
                             </div>
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                  <button type="button" class="btn btn-primary btn-block" id="btnGuardar" data-dismiss="modal">Guardar</button>
-                                  <button type="button" class="btn btn-primary btn-block" id="btnMod" onclick="clickMod()" data-dismiss="modal">Modificar</button>
+                                  <button type="button" class="btn btn-primary btn-block" id="btnGuardar" >Guardar</button>
+                                  <button type="button" class="btn btn-primary btn-block" id="btnMod" onclick="clickMod()" >Modificar</button>
                             </div>
                           </div>
                         </div>
@@ -75,31 +79,56 @@
                       <div class="modal fade" id="modalBusqueda">
                         <div class="modal-dialog modal-lg">
                           <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <h4 class="modal-title">Buscar</h4>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body jumbotron">
-                              <form action="">
-                                <div class="row">
-                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                    <div class="form-group">
-                                      <label for="txtbusqueda">Buscar</label>
-                                      <input type="text" class="form-control" id="txtbusqueda" aria-describedby="emailHelp" placeholder="">
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <button type="button" class="close" id="" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Buscar</h4>
+                              </div>
+                              <!-- Modal body -->
+                              <div class="modal-body jumbotron">
+                                <form action="">
+                                  <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                      <div class="form-group search">
+                                        <!-- <label for="txtbusqueda">Buscar</label> -->
+                                        <span class="fa fa-circle-o-notch fa-spin" id="cargando"></span>
+                                        <input  type="text" class="form-control" id="buscar" name="txtBuscar" aria-describedby="buscar" placeholder="Buscar...">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary btn-block" id="btnBuscar">Buscar en BD</button>
+                              </div>
+                                <!-- tabla busquedas  -->
+                                <div class="row" id="divBusqueda">
+                                  <div class="col-lg-12">
+                                    <div class="pane panel-default">
+                                      <div class="panel-heading">Resultados</div>
+                                      <div class="panel-body">
+                                        <div class="table-responsive">
+                                          <table class="table table-striped" id="tblBusqueda">
+                                            <thead class="thead-dark">
+                                              <tr>
+                                                <th>Id</th>
+                                                <th>Descripcion</th>
+                                                <th>Acciones</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody id="tabla_buscar_body">
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </form>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                  <button type="button" class="btn btn-primary btn-block">Buscar en BD</button>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      <!-- </div> -->
                       <!-- Fin del Modal de busqueda -->
                       <br>
                         <!-- /.row (nested) -->
@@ -111,6 +140,15 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
+        <!-- alerta -->
+        <div class="alert alert-success alert-dismissable" id="alertExito">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Operación exitosa.
+        </div>
+        <div class="alert alert-danger alert-dismissable" id="alertBaja">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Borraste un registro.
+        </div>
           <!-- Inicio de la tabla ciudades -->
         <div class="row">
           <div class="col-lg-12">
@@ -141,7 +179,7 @@
     <!-- /#page-wrapper -->
 
 </div>
-<!-- /#wrapper -->
+<!-- /#wrapper del menu -->
 
 <?php include '../partials/footer.php'; ?>
 <?php include '../jsOperacionales/ciudadOperacional.php'; ?>

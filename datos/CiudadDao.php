@@ -18,7 +18,7 @@ class CiudadDao extends Conexion {
   // Obtener ciudades
   public static function getCiudad() {
     try {
-      $query = "SELECT ciu_cod, ciu_descri FROM public.ciudades";
+      $query = "SELECT * FROM v_ultimas_cinco_ciudades";
 
       self::getConexion();
 
@@ -26,6 +26,29 @@ class CiudadDao extends Conexion {
       $resultado->execute();
       $fila = $resultado->fetchAll(PDO::FETCH_OBJ);
 
+      return $fila;
+
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
+
+  // Obtener ciudades por nombre
+  public static function getDescripcion($ciudad) {
+    try {
+      $query = "SELECT * FROM v_todo_ciudades WHERE ciu_descri ILIKE ?";
+
+      self::getConexion();
+
+      $resultado = self::$cnx->prepare($query);
+
+      $descripcion_obtenido = $ciudad->getDescripcion();
+      $descripcion_obtenido = "%".$descripcion_obtenido."%";
+
+      // $resultado->bindParam(":descripcion", $descripcion_obtenido);
+      // $resultado->execute();
+      $resultado->execute(array($descripcion_obtenido));
+      $fila = $resultado->fetchAll(PDO::FETCH_OBJ);
       return $fila;
 
     } catch (Exception $e) {

@@ -3,9 +3,10 @@
 include '../datos/CiudadDao.php';
 
 class CiudadControlador {
+
   public function obtenerCiudad() {
     return CiudadDao::getCiudad();
-    // CiudadDao::desconectar();
+    CiudadDao::desconectar();
   }
 
   public function registrarCiudad($op, $id, $descripcion) {
@@ -17,6 +18,12 @@ class CiudadControlador {
     return CiudadDao::altaCiudad($obj_ciudad);
   }
 
+  public function obtenerDescripcion($descripcion) {
+    $obj_ciudad =  new Ciudad();
+    $obj_ciudad->setDescripcion($descripcion);
+
+    return CiudadDao::getDescripcion($obj_ciudad);
+  }
 
 }
 ?>
