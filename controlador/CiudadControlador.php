@@ -1,11 +1,16 @@
 <?php
 
-include '../datos/CiudadDao.php';
+include '../../datos/CiudadDao.php';
 
 class CiudadControlador {
 
   public function obtenerCiudad() {
     return CiudadDao::getCiudad();
+    CiudadDao::desconectar();
+  }
+
+  public function obtenerTodasCiudad() {
+    return CiudadDao::getAllCiudad();
     CiudadDao::desconectar();
   }
 

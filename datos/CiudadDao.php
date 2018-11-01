@@ -1,7 +1,7 @@
 <?php
 
 include 'Conexion.php';
-include '../entidades/Ciudad.php';
+include '../../entidades/Ciudad.php';
 
 class CiudadDao extends Conexion {
 
@@ -15,7 +15,25 @@ class CiudadDao extends Conexion {
     self::$cnx = null;
   }
 
-  // Obtener ciudades
+  // Obtener todas las ciudades
+  public static function getAllCiudad() {
+    try {
+      $query = "SELECT * FROM v_todo_ciudades";
+
+      self::getConexion();
+
+      $resultado = self::$cnx->prepare($query);
+      $resultado->execute();
+      $fila = $resultado->fetchAll(PDO::FETCH_OBJ);
+
+      return $fila;
+
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
+
+  // Obtener ultimas 5 ciudades
   public static function getCiudad() {
     try {
       $query = "SELECT * FROM v_ultimas_cinco_ciudades";
@@ -74,11 +92,15 @@ class CiudadDao extends Conexion {
       $resultado->bindParam(":descripcion", $descripcion_obtenido);
 
       if($resultado->execute()) {
+        echo "exito";
         return true;
       }
       return false;
     } catch (Exception $e) {
-      die($e->getMessage());
+      //die($e->getMessage());
+      if($e->getCode()==23503){
+        echo $e->getCode();
+      }
       return false;
     }
   }

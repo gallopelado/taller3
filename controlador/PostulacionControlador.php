@@ -1,29 +1,43 @@
 <?php
 
-include '../datos/CiudadDao.php';
+include '../../datos/PostulacionDAO.php';
 
-class CiudadControlador {
+class PostulacionControlador {
 
-  public function obtenerCiudad() {
-    return CiudadDao::getCiudad();
-    CiudadDao::desconectar();
+  public function getListaPostulacion() {
+    return PostulacionDAO::getListaPostulacion();    
+  }
+  
+  public function getListaPostulacionGeneral() {
+    return PostulacionDAO::getListaPostulacionGeneral();
+  }
+  
+  public function getListaPostulacionGeneralCerradas() {
+    return PostulacionDAO::getListaPostulacionGeneralCerradas();
   }
 
-  public function registrarCiudad($op, $id, $descripcion) {
-    $obj_ciudad = new Ciudad();
-    $obj_ciudad->setOp($op);
-    $obj_ciudad->setId($id);
-    $obj_ciudad->setDescripcion($descripcion);
-
-    return CiudadDao::altaCiudad($obj_ciudad);
+  public function persistir($op, $idpostulacion, $idministerio, $descripcion, $documento, $vacancia,
+          $idcargo, $iniciopostulacion, $finpostulacion, $estado) {
+      $obj = new Postulacion();
+      $obj->setOp($op);
+      $obj->setIdpostulacion($idpostulacion);
+      $obj->setIdministerio($idministerio);
+      $obj->setDescripcion($descripcion);
+      $obj->setDocumento($documento);
+      $obj->setVacancia($vacancia);
+      $obj->setIdcargo($idcargo);
+      $obj->setIniciopostulacion($iniciopostulacion);
+      $obj->setFinpostulacion($finpostulacion);
+      $obj->setEstado($estado);
+      return PostulacionDAO::persistir($obj);
   }
-
-  public function obtenerDescripcion($descripcion) {
-    $obj_ciudad =  new Ciudad();
-    $obj_ciudad->setDescripcion($descripcion);
-
-    return CiudadDao::getDescripcion($obj_ciudad);
-  }
-
+  
+  public function analizarNulos($dato) {
+        if ($dato === "" || $dato === null) {
+            return null;
+        } else {
+            return $dato;
+        }
+    }
 }
 ?>

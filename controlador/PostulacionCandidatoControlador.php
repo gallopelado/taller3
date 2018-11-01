@@ -1,29 +1,33 @@
 <?php
 
-include '../datos/CiudadDao.php';
+include '../../datos/PostulacionCandidatoDAO.php';
 
-class CiudadControlador {
+class PostulacionCandidatoControlador {
 
-  public function obtenerCiudad() {
-    return CiudadDao::getCiudad();
-    CiudadDao::desconectar();
+  public function getListaAsignados($idpostulacion) {
+    return PostulacionCandidatoDAO::getListaAsignados($idpostulacion);
+  }
+  
+
+  public function persistir($op, $idpostulacion, $idpostulante) {
+      $obj = new PostulacionCandidato();
+      $obj->setOp($op);
+      $obj->setIdpostulacion($idpostulacion);
+      $obj->setIdcandidato($idpostulante);
+      return PostulacionCandidatoDAO::persistir($obj);
+  }
+  
+  public function analizaFecha() {
+      return PostulacionCandidatoDAO::analizaFecha();
   }
 
-  public function registrarCiudad($op, $id, $descripcion) {
-    $obj_ciudad = new Ciudad();
-    $obj_ciudad->setOp($op);
-    $obj_ciudad->setId($id);
-    $obj_ciudad->setDescripcion($descripcion);
 
-    return CiudadDao::altaCiudad($obj_ciudad);
-  }
-
-  public function obtenerDescripcion($descripcion) {
-    $obj_ciudad =  new Ciudad();
-    $obj_ciudad->setDescripcion($descripcion);
-
-    return CiudadDao::getDescripcion($obj_ciudad);
-  }
-
+  public function analizarNulos($dato) {
+        if ($dato === "" || $dato === null) {
+            return null;
+        } else {
+            return $dato;
+        }
+    }
 }
 ?>

@@ -1,29 +1,37 @@
 <?php
 
-include '../datos/CiudadDao.php';
+include '../../datos/CandidatoDAO.php';
 
-class CiudadControlador {
+class CandidatoControlador {
 
-  public function obtenerCiudad() {
-    return CiudadDao::getCiudad();
-    CiudadDao::desconectar();
+  public function getListaCandidatos() {
+    return CandidatoDAO::getListaCandidatos();    
+  }
+  
+  public function getListaCandidatosById($idcandidato) {
+    return CandidatoDAO::getListaCandidatosById($idcandidato);    
   }
 
-  public function registrarCiudad($op, $id, $descripcion) {
-    $obj_ciudad = new Ciudad();
-    $obj_ciudad->setOp($op);
-    $obj_ciudad->setId($id);
-    $obj_ciudad->setDescripcion($descripcion);
-
-    return CiudadDao::altaCiudad($obj_ciudad);
+  public function persistir($op, $idcandidato, $idmiembro,$cualidades, $actitudes, $antecedentes, $fecha, $servir) {
+      $obj = new Candidato();
+      $obj->setOp($op);
+      $obj->setIdcandidato($idcandidato);
+      $obj->setIdmiembro($idmiembro);
+      $obj->setCualidades($cualidades);
+      $obj->setActiministerial($actitudes);
+      $obj->setAntecedentes($antecedentes);
+      $obj->setFecha($fecha);
+      $obj->setServir($servir);
+      return CandidatoDAO::persistir($obj);
   }
-
-  public function obtenerDescripcion($descripcion) {
-    $obj_ciudad =  new Ciudad();
-    $obj_ciudad->setDescripcion($descripcion);
-
-    return CiudadDao::getDescripcion($obj_ciudad);
-  }
+  
+  public function analizarNulos($dato) {
+        if ($dato === '' || $dato === null) {
+            return null;
+        } else {
+            return $dato;
+        }
+    }
 
 }
 ?>
